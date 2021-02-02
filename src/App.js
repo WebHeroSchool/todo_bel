@@ -1,5 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
+import {count, lenght} from './number.js';
 
 const index = 27;
 const name = 'Санкт-Петербург';
@@ -37,6 +38,9 @@ function App() {
          </p>
          <p>
            {undefined} {null} {false} {true} 
+         </p>
+         <p> 
+           {count * lenght}
          </p>
         <a
           className="App-link"
