@@ -1,0 +1,9 @@
+.wrap {
+	margin: auto;
+	width: 400px;
+}
+
+.wrap__title {
+	color: red;
+	font-family: Georgia;
+}
