@@ -9,8 +9,9 @@ import Divider from '@material-ui/core/Divider';
 
 const todoItem = 'Написать сайт';
 
-const App = () => { 
-	const items = [
+class App extends React.Component {
+  render () {
+  	const items = [
 	  {
 	  	value: 'Написать сайт',
 	  	isDone: false
@@ -36,6 +37,8 @@ const App = () => {
 	   <Footer count={10} />
 	 </div>
 	</Paper> );
-}
+  }
+};
 
 	export default App;
+	
