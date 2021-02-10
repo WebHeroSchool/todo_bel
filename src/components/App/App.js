@@ -8,13 +8,16 @@ const todoItem = 'Написать сайт';
 const App = () => { 
 	const items = [
 	  {
-	  	value: 'Написать сайт'
+	  	value: 'Написать сайт',
+	  	isDone: false
 	  }, 
 	  {
-	  	value: 'Погулять'
+	  	value: 'Погулять',
+	  	isDone: false
 	  },
 	  {
-	  	value: 'Сделать задания'
+	  	value: 'Сделать задания',
+	  	isDone: true
 	  }
 	];
 
