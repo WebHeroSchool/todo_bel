@@ -3,6 +3,7 @@ import ItemList from '../ItemList/ItemList';
 import Footer from '../Footer/Footer';
 import InputItem from '../InputItem/InputItem';
 import styles from  './App.module.css';
+import Paper from '@material-ui/core/Paper';
 
 const todoItem = 'Написать сайт';
 
@@ -22,13 +23,14 @@ const App = () => {
 	  }
 	];
 
-	return (
+	return (<Paper className={styles.paper} elevation={3}>
 	<div className={styles.wrap}> 
 	  <h1 className={styles.title}> Важные дела </h1> 
 	  <InputItem />
 	  <ItemList items={items} />
 	  <Footer count={10} />
-	</div>);
+	</div>
+	</Paper> );
 }
 
 	export default App;
