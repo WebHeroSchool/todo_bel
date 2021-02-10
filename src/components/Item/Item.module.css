@@ -1,23 +1,21 @@
 .item {
 	color: #20B2AA;
 	margin: auto 0;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
 }
 
 .done {
 	color: #c4c4c4;
-	/*text-decoration: line-through;*/
+	text-decoration: line-through;
 }
 
-.grid {
+
+.itemWrap {
   display: grid;
   grid-template-columns: 50px 1fr 50px;
 }
 
 .checkbox {
-  margin: auto;
+  margin: auto 0;
 }
 
 .deleteBtn {
