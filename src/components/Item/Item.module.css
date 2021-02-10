@@ -1,7 +1,27 @@
 .item {
 	color: #20B2AA;
+	margin: auto 0;
 }
 
 .done {
 	color: #c4c4c4;
+	text-decoration: line-through;
 }
+
+
+.itemWrap {
+  display: grid;
+  grid-template-columns: 50px 1fr 50px;
+}
+
+.checkbox {
+  margin: auto 0;
+}
+
+.deleteBtn {
+  opacity: 0;
+}
+
+.itemWrap:hover .deleteBtn {
+  opacity: 1;
+}	
