@@ -4,10 +4,8 @@ import Footer from '../Footer/Footer';
 import InputItem from '../InputItem/InputItem';
 import styles from  './App.module.css';
 import Paper from '@material-ui/core/Paper';
-import FilterList from '../FilterList/FilterList';
 import Divider from '@material-ui/core/Divider';
 
-const todoItem = 'Написать сайт';
 
 class App extends React.Component {
   render () {
@@ -41,4 +39,3 @@ class App extends React.Component {
 };
 
 	export default App;
-	

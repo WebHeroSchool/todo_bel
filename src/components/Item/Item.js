@@ -1,4 +1,4 @@
-import Reat from 'react';
+import React from 'react';
 import classnames from 'classnames';
 import styles from './Item.module.css';
 import Checkbox from '@material-ui/core/Checkbox';
