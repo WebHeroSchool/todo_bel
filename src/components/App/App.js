@@ -8,8 +8,8 @@ import Divider from '@material-ui/core/Divider';
 
 
 class App extends React.Component {
-  render () {
-  	const items = [
+	state = {
+		  items : [
 	  {
 	  	value: 'Написать сайт',
 	  	isDone: false
@@ -22,13 +22,16 @@ class App extends React.Component {
 	  	value: 'Сделать задания',
 	  	isDone: true
 	  }
-	];
+	 ]
+
+	};
+  render () {
 
 	return (<Paper className={styles.paper} elevation={3}>
 	<div className={styles.wrap}> 
 	  <h1 className={styles.title}> Важные дела </h1> 
 	  <InputItem />
-	  <ItemList items={items} />
+	  <ItemList items={this.state.items} />
 	 </div>
 	 <div> 
 	 <Divider />
