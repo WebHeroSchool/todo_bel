@@ -10,12 +10,13 @@ const transition = {
   transition: 'opacity .4s ease-out',
 };
 
-const Item = ({value, isDone}) => (<div className={styles.itemWrap}>
+const Item = ({value, isDone, onClickDone}) => (<div className={styles.itemWrap}>
 	<div className={styles.checkbox}>
   <Checkbox
      defaultChecked
      color="primary"
      inputProps={{ 'aria-label': 'secondary checkbox' }}
+     onClick={() => onClickDone(isDone)}
   />
   </div>
 	<span className={

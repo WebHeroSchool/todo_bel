@@ -25,13 +25,16 @@ class App extends React.Component {
 	 ]
 
 	};
+	onClickDone = isDone => console.log(isDone);
+  
+
   render () {
 
 	return (<Paper className={styles.paper} elevation={3}>
 	<div className={styles.wrap}> 
 	  <h1 className={styles.title}> Важные дела </h1> 
 	  <InputItem />
-	  <ItemList items={this.state.items} />
+	  <ItemList items={this.state.items} onClickDone={this.onClickDone}/>
 	 </div>
 	 <div> 
 	 <Divider />
