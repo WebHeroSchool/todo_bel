@@ -21,7 +21,7 @@ const Item = ({value, isDone, onClickDone, id}) => (<div className={styles.itemW
   </div>
 	<span className={
      classnames({
-     	  [styles.item]: true,
+     	  [styles.item]: false,
      	  [styles.done]: isDone
      })
 }> 

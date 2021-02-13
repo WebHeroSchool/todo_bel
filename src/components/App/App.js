@@ -12,12 +12,12 @@ class App extends React.Component {
 		  items : [
 	  {
 	  	value: 'Написать сайт',
-	  	isDone: false,
+	  	isDone: true,
 	  	id: 1
 	  }, 
 	  {
 	  	value: 'Погулять',
-	  	isDone: false,
+	  	isDone: true,
 	  	id: 2
 	  },
 	  {
@@ -42,6 +42,9 @@ class App extends React.Component {
 		this.setState({ items: newItemList});
 	} ;
   
+  // onClickDelete = id => {
+
+  // }
 
   render () {
 
@@ -49,7 +52,10 @@ class App extends React.Component {
 	<div className={styles.wrap}> 
 	  <h1 className={styles.title}> Важные дела </h1> 
 	  <InputItem />
-	  <ItemList items={this.state.items} onClickDone={this.onClickDone}/>
+	  <ItemList items={this.state.items} 
+	  onClickDone={this.onClickDone}
+	  // onClickDelete={this.onClickDelete}
+	  />
 	 </div>
 	 <div> 
 	 <Divider />
