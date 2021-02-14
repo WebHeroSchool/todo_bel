@@ -10,17 +10,18 @@ const transition = {
   transition: 'opacity .4s ease-out',
 };
 
-const Item = ({value, isDone}) => (<div className={styles.itemWrap}>
+const Item = ({value, isDone, onClickDone, id, onClickDelete}) => (<div className={styles.itemWrap}>
 	<div className={styles.checkbox}>
   <Checkbox
      defaultChecked
      color="primary"
      inputProps={{ 'aria-label': 'secondary checkbox' }}
+     onClick={() => onClickDone(id)}
   />
   </div>
 	<span className={
      classnames({
-     	  [styles.item]: true,
+     	  [styles.item]: false,
      	  [styles.done]: isDone
      })
 }> 
@@ -30,8 +31,10 @@ const Item = ({value, isDone}) => (<div className={styles.itemWrap}>
         style={transition}
         className={styles.deleteBtn}
         variant="contained"
-        color="secondary">
+        color="secondary"
+        onClick={() => onClickDelete(id)}
         >
+       >
           <DeleteIcon />
         </IconButton>
       </Tooltip>     

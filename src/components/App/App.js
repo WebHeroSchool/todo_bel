@@ -8,27 +8,58 @@ import Divider from '@material-ui/core/Divider';
 
 
 class App extends React.Component {
-  render () {
-  	const items = [
+	state = {
+		  items : [
 	  {
 	  	value: 'Написать сайт',
-	  	isDone: false
+	  	isDone: true,
+	  	id: 1
 	  }, 
 	  {
 	  	value: 'Погулять',
-	  	isDone: false
+	  	isDone: true,
+	  	id: 2
 	  },
 	  {
 	  	value: 'Сделать задания',
-	  	isDone: true
+	  	isDone: true,
+	  	id:3
 	  }
-	];
+	 ]
+
+	};
+	onClickDone = id => {
+		const newItemList = this.state.items.map(item => {
+			  const newItem = { ...item};
+
+			  if (item.id === id) {
+			  	  newItem.isDone = !item.isDone;
+			  }
+
+			  return newItem;
+		})
+
+		this.setState({ items: newItemList});
+	} ;
+  
+  onClickDelete = id => {
+  	const newItemList = this.state.items.filter( item => item.id !== id);
+
+  	this.setState({ items: newItemList});
+
+  }
+
+  render () {
 
 	return (<Paper className={styles.paper} elevation={3}>
 	<div className={styles.wrap}> 
 	  <h1 className={styles.title}> Важные дела </h1> 
 	  <InputItem />
-	  <ItemList items={items} />
+	  <ItemList 
+	    items={this.state.items} 
+	    onClickDone={this.onClickDone}
+	    onClickDelete={this.onClickDelete}
+	  />
 	 </div>
 	 <div> 
 	 <Divider />
