@@ -25,7 +25,8 @@ class App extends React.Component {
 	  	isDone: true,
 	  	id:3
 	  }
-	 ]
+	 ],
+	 count:3
 
 	};
 	onClickDone = id => {
@@ -44,17 +45,27 @@ class App extends React.Component {
   
   onClickDelete = id => {
   	const newItemList = this.state.items.filter( item => item.id !== id);
-
   	this.setState({ items: newItemList});
-
   }
+
+  onClickAdd = value => this.setState(state => ({
+  	  items: [
+        ...state.items,
+        {
+        	  value,
+        	  isDone: true,
+        	  id: state.count + 1
+        }
+  	  ],
+  	  count: state.count +1
+  }));
 
   render () {
 
 	return (<Paper className={styles.paper} elevation={3}>
 	<div className={styles.wrap}> 
 	  <h1 className={styles.title}> Важные дела </h1> 
-	  <InputItem />
+	  <InputItem onClickAdd={this.onClickAdd} />
 	  <ItemList 
 	    items={this.state.items} 
 	    onClickDone={this.onClickDone}
