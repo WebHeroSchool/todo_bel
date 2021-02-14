@@ -11,5 +11,4 @@ const FilterList = () => (<div className={styles.filter}>
    </ButtonGroup>
 	</div>)
 
-
 export default FilterList;

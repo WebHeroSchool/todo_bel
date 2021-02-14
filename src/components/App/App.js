@@ -74,7 +74,7 @@ class App extends React.Component {
 	 </div>
 	 <div> 
 	 <Divider />
-	   <Footer count={10} />
+	   <Footer />
 	 </div>
 	</Paper> );
   }
