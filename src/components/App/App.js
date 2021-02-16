@@ -5,6 +5,7 @@ import InputItem from '../InputItem/InputItem';
 import styles from  './App.module.css';
 import Paper from '@material-ui/core/Paper';
 import Divider from '@material-ui/core/Divider';
+import PropTypes from 'prop-types';
 
 
 class App extends React.Component {
@@ -78,6 +79,10 @@ class App extends React.Component {
 	 </div>
 	</Paper> );
   }
+};
+
+App.propTypes = {
+     onClickAdd: PropTypes.func
 };
 
 	export default App;
