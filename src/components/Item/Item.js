@@ -16,14 +16,14 @@ class Item extends React.Component {
 		console.log('componentDidMount');
 	}
 
-	compomentDidUpdate () {
-		console.log('compomentDidUpdate');
+	componentDidUpdate () {
+		console.log('componentDidUpdate');
 	}
 
 	componentWillUnmount(){
 		console.log('componentWillUnmount');
 	}
-	
+
  	  render() {
 	  	    const {value, isDone, onClickDone, id, onClickDelete} = this.props;
 			  	return (
