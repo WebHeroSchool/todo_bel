@@ -75,7 +75,7 @@ class App extends React.Component {
 	 </div>
 	 <div> 
 	 <Divider />
-	   <Footer />
+	   <Footer count={this.state.count}/>
 	 </div>
 	</Paper> );
   }

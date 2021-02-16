@@ -11,36 +11,54 @@ const transition = {
   transition: 'opacity .4s ease-out',
 };
 
-const Item = ({value, isDone, onClickDone, id, onClickDelete}) => (<div className={styles.itemWrap}>
-	<div className={styles.checkbox}>
-  <Checkbox
-     defaultChecked
-     color="primary"
-     inputProps={{ 'aria-label': 'secondary checkbox' }}
-     onClick={() => onClickDone(id)}
-  />
-  </div>
-	<span className={
-     classnames({
-     	  [styles.item]: false,
-     	  [styles.done]: isDone
-     })
-}> 
-  {value}
-       <Tooltip title="Delete">
-        <IconButton aria-label="delete"
-        style={transition}
-        className={styles.deleteBtn}
-        variant="contained"
-        color="secondary"
-        onClick={() => onClickDelete(id)}
-        >
-       >
-          <DeleteIcon />
-        </IconButton>
-      </Tooltip>     
- </span>
- </div>);
+class Item extends React.Component {
+	componentDidMount() {
+		console.log('componentDidMount');
+	}
+
+	componentDidUpdate () {
+		console.log('componentDidUpdate');
+	}
+
+	componentWillUnmount(){
+		console.log('componentWillUnmount');
+	}
+
+ 	  render() {
+	  	    const {value, isDone, onClickDone, id, onClickDelete} = this.props;
+			  	return (
+			  		<div className={styles.itemWrap}>
+							<div className={styles.checkbox}>
+						  <Checkbox
+						     defaultChecked
+						     color="primary"
+						     inputProps={{ 'aria-label': 'secondary checkbox' }}
+						     onClick={() => onClickDone(id)}
+						  />
+						  </div>
+							<span className={
+						     classnames({
+						     	  [styles.item]: false,
+						     	  [styles.done]: isDone
+						     })
+						  }> 
+						  {value}
+						       <Tooltip title="Delete">
+						        <IconButton aria-label="delete"
+						        style={transition}
+						        className={styles.deleteBtn}
+						        variant="contained"
+						        color="secondary"
+						        onClick={() => onClickDelete(id)}
+						        >
+						       >
+						          <DeleteIcon />
+						        </IconButton>
+						      </Tooltip>     
+						 </span>
+						 </div>);
+	  }
+}
 
 Item.propTypes = {
 	  isDone: PropTypes.bool ,
