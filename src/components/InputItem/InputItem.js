@@ -1,6 +1,7 @@
 import React from 'react';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
+import PropTypes from 'prop-types';
 import styless from './InputItem.module.css';
 
 class InputItem extends React.Component {
@@ -53,5 +54,10 @@ class InputItem extends React.Component {
 	       </div>);
 	  }
 }
+
+InputItem.propTypes = {
+	  isDone: PropTypes.bool,
+	  helperText: PropTypes.string
+};
 
 	export default InputItem;
