@@ -13,16 +13,12 @@ const transition = {
 
 class Item extends React.Component {
 	componentDidMount() {
-		console.log('componentDidMount');
+		this.timerId = setInterval(() => console.log('interval'), 1000);
+	}
+	componentWillUnmount () {
+		clearInterval(this.timerId);
 	}
 
-	componentDidUpdate () {
-		console.log('componentDidUpdate');
-	}
-
-	componentWillUnmount(){
-		console.log('componentWillUnmount');
-	}
 
  	  render() {
 	  	    const {value, isDone, onClickDone, id, onClickDelete} = this.props;
