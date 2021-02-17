@@ -70,7 +70,7 @@ const App = () => {
         	  isDone: true,
         	  id: count + 1,
         },
-        ... items,
+        ...items,
   	  ];
   
   	setItems(newItems);
