@@ -1,14 +1,8 @@
 .wrap {
-	margin: auto;
-	width: 400px;
+	display: flex;
+	justify-content: center;
 }
 
-.title {
-	color: red;
-	font-family: Georgia;
-}
-
-.paper {
-	margin: auto;
-	width: 700px;
+.link {
+	text-decoration: none;
 }

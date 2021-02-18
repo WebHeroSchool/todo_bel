@@ -1,0 +1,14 @@
+.wrap {
+	margin: auto;
+	width: 400px;
+}
+
+.title {
+	color: red;
+	font-family: Georgia;
+}
+
+.paper {
+	margin: auto;
+	width: 700px;
+}
