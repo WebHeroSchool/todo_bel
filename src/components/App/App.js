@@ -1,88 +1,31 @@
-import React from 'react'; 
-import ItemList from '../ItemList/ItemList';
-import Footer from '../Footer/Footer';
-import InputItem from '../InputItem/InputItem';
-import styles from  './App.module.css';
-import Paper from '@material-ui/core/Paper';
-import Divider from '@material-ui/core/Divider';
-import PropTypes from 'prop-types';
+import React from 'react';
+import { BrowserRouter as Router, Route, Link} from 'react-router-dom';
+import Card from '@material-ui/core/Card';
+import MenuItem from '@material-ui/core/MenuItem';
+import MenuList from '@material-ui/core/MenuList';
 
+import Todo from '../Todo/Todo';
+import About from '../About/About';
+import Contacts from '../Contacts/Contacts.js';
+import styles from './App.module.css';
 
-class App extends React.Component {
-	state = {
-		  items : [
-	  {
-	  	value: 'Написать сайт',
-	  	isDone: true,
-	  	id: 1
-	  }, 
-	  {
-	  	value: 'Погулять',
-	  	isDone: true,
-	  	id: 2
-	  },
-	  {
-	  	value: 'Сделать задания',
-	  	isDone: true,
-	  	id:3
-	  }
-	 ],
-	 count:3
+const App = () =>
+  (<Router>
+	  	<div className={styles.wrap} >
+		  	<Card>
+		  	    <MenuList>
+			          <Link to='/' className={styles.link} > <MenuItem>Обо мне</MenuItem></Link>
+			          <Link to='/todo' className={styles.link} ><MenuItem>Дела</MenuItem></Link>
+			          <Link to='/contacts' className={styles.link} ><MenuItem>Контакты</MenuItem></Link>
+		        </MenuList>
+		  	</Card>
 
-	};
-	onClickDone = id => {
-		const newItemList = this.state.items.map(item => {
-			  const newItem = { ...item};
+		  	<Card>
+		  	  <Route path='/' exact component={About} />
+		  	  <Route path='/todo' component={Todo} />
+		  	  <Route path='/contacts' component={Contacts} />
+		  	</Card> 
+	  </div>
+  </Router>);
 
-			  if (item.id === id) {
-			  	  newItem.isDone = !item.isDone;
-			  }
-
-			  return newItem;
-		})
-
-		this.setState({ items: newItemList});
-	} ;
-  
-  onClickDelete = id => {
-  	const newItemList = this.state.items.filter( item => item.id !== id);
-  	this.setState({ items: newItemList});
-  }
-
-  onClickAdd = value => this.setState(state => ({
-  	  items: [
-        ...state.items,
-        {
-        	  value,
-        	  isDone: true,
-        	  id: state.count + 1
-        }
-  	  ],
-  	  count: state.count +1
-  }));
-
-  render () {
-
-	return (<Paper className={styles.paper} elevation={3}>
-	<div className={styles.wrap}> 
-	  <h1 className={styles.title}> Важные дела </h1> 
-	  <InputItem onClickAdd={this.onClickAdd} />
-	  <ItemList 
-	    items={this.state.items} 
-	    onClickDone={this.onClickDone}
-	    onClickDelete={this.onClickDelete}
-	  />
-	 </div>
-	 <div> 
-	 <Divider />
-	   <Footer count={this.state.count}/>
-	 </div>
-	</Paper> );
-  }
-};
-
-App.propTypes = {
-     onClickAdd: PropTypes.func
-};
-
-	export default App;
+  export default App;

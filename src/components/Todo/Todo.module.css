@@ -1,0 +1,13 @@
+.wrap {
+  margin: auto;
+  width: 400px;
+}
+
+.title {
+  color: red;
+}
+
+.paper {
+  margin: auto;
+  width: 700px;
+}
