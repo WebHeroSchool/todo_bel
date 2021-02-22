@@ -2,8 +2,10 @@ import React from 'react';
 import classnames from 'classnames';
 import PropTypes from 'prop-types';
 import styles from './Item.module.css';
+import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction';
+import ListItem from '@material-ui/core/ListItem';
 import Checkbox from '@material-ui/core/Checkbox';
-import DeleteIcon from '@material-ui/icons/Delete';
+import DeleteIcon from '@material-ui/icons/Cancel';
 import IconButton from '@material-ui/core/IconButton';
 import Tooltip from '@material-ui/core/Tooltip';
 
@@ -12,23 +14,16 @@ const transition = {
 };
 
 class Item extends React.Component {
-	componentDidMount() {
-		this.timerId = setInterval(() => console.log('interval'), 1000);
-	}
-	componentWillUnmount () {
-		clearInterval(this.timerId);
-	}
-
 
  	  render() {
 	  	    const {value, isDone, onClickDone, id, onClickDelete} = this.props;
 			  	return (
+			  		<ListItem className={styles.itemList} >
 			  		<div className={styles.itemWrap}>
 							<div className={styles.checkbox}>
 						  <Checkbox
-						     defaultChecked
-						     color="primary"
-						     inputProps={{ 'aria-label': 'secondary checkbox' }}
+			           name="checkedB"
+			           color="primary"
 						     onClick={() => onClickDone(id)}
 						  />
 						  </div>
@@ -39,20 +34,14 @@ class Item extends React.Component {
 						     })
 						  }> 
 						  {value}
-						       <Tooltip title="Delete">
-						        <IconButton aria-label="delete"
-						        style={transition}
-						        className={styles.deleteBtn}
-						        variant="contained"
-						        color="secondary"
-						        onClick={() => onClickDelete(id)}
-						        >
-						       >
-						          <DeleteIcon />
-						        </IconButton>
-						      </Tooltip>     
+	          <IconButton aria-label="delete">
+	            <DeleteIcon onClick={() => onClickDelete(id)}/>	            
+	          </IconButton>	           
 						 </span>
-						 </div>);
+						 </div>
+						 </ListItem>
+						 );
+
 	  }
 }
 

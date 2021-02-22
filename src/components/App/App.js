@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Link} from 'react-router-dom';
+import { BrowserRouter as Router, Route, Link, NavLink} from 'react-router-dom';
 import Card from '@material-ui/core/Card';
 import MenuItem from '@material-ui/core/MenuItem';
 import MenuList from '@material-ui/core/MenuList';
@@ -8,15 +8,19 @@ import Todo from '../Todo/Todo';
 import About from '../About/About';
 import Contacts from '../Contacts/Contacts.js';
 import styles from './App.module.css';
+import logo from './Img/logo.svg';
 
 const App = () =>
   (<Router>
 	  	<div className={styles.wrap} >
-		  	<Card>
-		  	    <MenuList>
-			          <Link to='/' className={styles.link} > <MenuItem>Обо мне</MenuItem></Link>
-			          <Link to='/todo' className={styles.link} ><MenuItem>Дела</MenuItem></Link>
-			          <Link to='/contacts' className={styles.link} ><MenuItem>Контакты</MenuItem></Link>
+		  	<Card className={styles.card}>
+		  	    <MenuList className={styles.menu} >
+		  	      <a href='https://webheroschool.ru/' target='_blank' rel='noopener noreferrer'> 
+		  	      <img src={logo} width="100" height="40" alt="logo" />
+		  	      </a>
+			          <NavLink to='/' className={styles.link} activeClassName={styles.linkActive} exact to='/'> <MenuItem>Обо мне</MenuItem></NavLink>
+			          <NavLink to='/todo' className={styles.link} activeClassName={styles.linkActive} ><MenuItem>Дела</MenuItem></NavLink>
+			          <NavLink to='/contacts' className={styles.link} activeClassName={styles.linkActive} ><MenuItem>Контакты</MenuItem></NavLink>
 		        </MenuList>
 		  	</Card>
 

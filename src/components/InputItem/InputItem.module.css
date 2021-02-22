@@ -3,3 +3,42 @@
 	flex-direction: column;
 	justify-content: space-between;
 }
+
+.form {
+  display: flex;
+  /*flex-wrap: wrap;*/
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+}	
+
+.form div div {
+  background: #FFFFFF;
+  border-color: #CCCCCC;
+  box-sizing: border-box;
+  border-radius: 30px;
+}	
+
+
+.form label {
+  width: 100%;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 16px;
+  color: #cccccc;
+}	
+
+.form input {
+  width: 100%;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 16px;
+  color: #cccccc;
+}	
+
+.form div {
+  flex-grow: 1;
+  margin-right: 0.5em;
+}

@@ -3,6 +3,8 @@ import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import PropTypes from 'prop-types';
 import styless from './InputItem.module.css';
+import AddIcon from '@material-ui/icons/Add';
+import Fab from '@material-ui/core/Fab';
 
 class InputItem extends React.Component {
 	  state = {
@@ -31,27 +33,30 @@ class InputItem extends React.Component {
 	  render () {
 
 	  	return (<div className={styless.one}> 
-          <TextField
+	  			<form	      
+          onSubmit={event => event.preventDefault()}	          
+          autoComplete="off"	       
+          className={styless.form}
+          >
+          <TextField 
 		        error={this.state.errorStatus}
 		        helperText={this.state.helperText}
 		        fullWidth={true}
-		        id="outlined-basic"
+		        id="outlined-secondary"
 		        label="Добавить дело"
 		        margin="dense"
             variant="outlined"
             value={this.state.inputValue}
             onChange={event => this.setState({inputValue: event.target.value.toUpperCase()})}
           />
-          
-           <Button
-            variant="contained" 
-            color="primary"
-            onClick={this.onButtonClick}
-            >
-              Добавить
-           </Button>
-          
-	       </div>);
+	          <Fab
+	            color="primary"
+	            aria-label="add"
+	            onClick={() => this.onButtonClick()}>
+	            <AddIcon />
+            </Fab>
+          </form>  
+	      </div>);
 	  }
 }
 
@@ -61,3 +66,6 @@ InputItem.propTypes = {
 };
 
 	export default InputItem;
+
+
+    

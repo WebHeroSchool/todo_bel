@@ -4,7 +4,9 @@
 }
 
 .title {
-  color: red;
+  color: #000;
+  font-weight: bold;
+  font-size: 28px;
 }
 
 .paper {

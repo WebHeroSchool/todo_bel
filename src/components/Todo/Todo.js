@@ -1,46 +1,45 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import ItemList from '../ItemList/ItemList';
 import Footer from '../Footer/Footer';
 import InputItem from '../InputItem/InputItem';
+import FilterList from '../FilterList/FilterList';
+import FilterListItem from '../FilterListItem/FilterListItem';
 import styles from  './Todo.module.css';
 import Paper from '@material-ui/core/Paper';
-import Divider from '@material-ui/core/Divider';
 import PropTypes from 'prop-types';
 
 
 const Todo = () => {
 	const initialState = {
-		  items : [
+		  count:0,
+		  items: [],
+		  sortList: [],
+		  filterName: '' ,
+		  FilterListItem: [
 	  {
-	  	value: 'Написать сайт',
-	  	isDone: true,
+	  	value: "Завершенные",
+	  	isActive: false,
 	  	id: 1
 	  }, 
 	  {
-	  	value: 'Погулять',
-	  	isDone: true,
+	  	value: "Незавершенные",
+	  	isActive: false,
 	  	id: 2
 	  },
 	  {
-	  	value: 'Сделать задания',
-	  	isDone: true,
-	  	id:3
+	  	value: "Все",
+	  	isActive: true,
+	  	id: 3
 	  },
 	 ],
-	 count:3
-	};
+	 
+	}
 
 	const [items, setItems] = useState(initialState.items);
-
+	const [filterListItem, setFilterListItem] = useState(initialState.filterListItem);
+	const [filterName, setFilterName] = useState(initialState.filterName);
 	const [count, setCount] =  useState(initialState.count);
 
-	useEffect( () => {
-    console.log("update");
-  });
-
-  useEffect( () => {
-      console.log('mount');
-    }, []);
 
 	const onClickDone = id => {
 		const newItemList = items.map(item => {
@@ -60,7 +59,7 @@ const Todo = () => {
   	const newItemList = items.filter( item => item.id !== id);
 
   	setItems(newItemList);
-  	setCount(count => count - 1);
+  	setCount(count => count);
   };
 
   const onClickAdd = value => {
@@ -77,10 +76,38 @@ const Todo = () => {
   	setCount(count => count + 1);	  
   };
 
+  const onClickFilterActive = (id) => {
+  	const newFilterList = FilterListItem.map(item => {
+  		const newFilter = {... item};
+  		if (item.id === id) {
+  			newFilter.isActive = true;
+  			setFilterName(item.value);
+  		}
+  		else {
+  			newFilter.isActive = false;
+  		}
+  		return newFilter;
+  	});
+  	setFilterListItem(newFilterList);
+  };
+
+  let sortList = [... items];
+
+  if (filterName === 'Завершенные')  {
+  	sortList = items.filter(item => item.isDone);
+  } else if (filterName === 'Незавершенные') {
+  	sortList = items.filter(item => !item.isDone);
+  } else if (filterName === 'Все') {
+  	sortList = items;
+  } else {
+  	sortList = items;
+  }
+
 	return (<Paper className={styles.paper} elevation={3}>
 	<div className={styles.wrap}> 
-	  <h1 className={styles.title}> Важные дела </h1> 
-	  <InputItem onClickAdd={onClickAdd} />
+	  <h1 className={styles.title}> Список моих дел </h1> 
+
+	  <InputItem onClickAdd={onClickAdd} items={items} count={ count } />
 	  <ItemList 
 	    items={items} 
 	    onClickDone={onClickDone}
@@ -88,8 +115,10 @@ const Todo = () => {
 	  />
 	 </div>
 	 <div> 
-	 <Divider />
-	   <Footer count={count}/>
+	   <Footer
+	    activeTaskCount={items.filter(item => !item.isDone).length}
+      noActiveTaskCount={items.filter(item => item.isDone).length}
+	   />
 	 </div>
 	</Paper> );
  };
