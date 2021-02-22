@@ -7,6 +7,7 @@ import FilterListItem from '../FilterListItem/FilterListItem';
 import styles from  './Todo.module.css';
 import Paper from '@material-ui/core/Paper';
 import PropTypes from 'prop-types';
+import ErrorBlock from '../ErrorBlock/ErrorBlock';
 
 
 const Todo = () => {
@@ -106,18 +107,23 @@ const Todo = () => {
 	return (<Paper className={styles.paper} elevation={3}>
 	<div className={styles.wrap}> 
 	  <h1 className={styles.title}> Список моих дел </h1> 
+	  <FilterListItem />
+     {(count === 0) ?
+      <ErrorBlock />
+      : <ItemList
+        items={sortList}
+        onClickDone={onClickDone}
+        onClickDelete={onClickDelete}
+      />	    
+     }
 
 	  <InputItem onClickAdd={onClickAdd} items={items} count={ count } />
-	  <ItemList 
-	    items={items} 
-	    onClickDone={onClickDone}
-	    onClickDelete={onClickDelete}
-	  />
-	 </div>
+
+	  </div>
 	 <div> 
 	   <Footer
-	    activeTaskCount={items.filter(item => !item.isDone).length}
-      noActiveTaskCount={items.filter(item => item.isDone).length}
+	    activeTaskCount={items.filter(item => item.isDone).length}
+      noActiveTaskCount={items.filter(item => !item.isDone).length}
 	   />
 	 </div>
 	</Paper> );
@@ -128,3 +134,5 @@ Todo.propTypes = {
 };
 
 	export default Todo;
+
+

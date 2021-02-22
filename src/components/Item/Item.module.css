@@ -1,11 +1,11 @@
 .item {
 	color: #20B2AA;
 	margin: auto 0;
+  text-decoration: line-through;
 }
 
 .done {
 	color: #c4c4c4;
-	text-decoration: line-through;
 }
 
 

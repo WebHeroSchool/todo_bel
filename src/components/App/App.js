@@ -20,14 +20,14 @@ const App = () =>
 		  	      </a>
 			          <NavLink to='/' className={styles.link} activeClassName={styles.linkActive} exact to='/'> <MenuItem>Обо мне</MenuItem></NavLink>
 			          <NavLink to='/todo' className={styles.link} activeClassName={styles.linkActive} ><MenuItem>Дела</MenuItem></NavLink>
-			          <NavLink to='/contacts' className={styles.link} activeClassName={styles.linkActive} ><MenuItem>Контакты</MenuItem></NavLink>
+			          
 		        </MenuList>
 		  	</Card>
 
 		  	<Card>
 		  	  <Route path='/' exact component={About} />
 		  	  <Route path='/todo' component={Todo} />
-		  	  <Route path='/contacts' component={Contacts} />
+		  	  
 		  	</Card> 
 	  </div>
   </Router>);

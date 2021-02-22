@@ -23,16 +23,19 @@ import styles from './FilterList.module.css';
 
 // } 
 
-const FilterList = ({FilterListItem, onClickFilterActive}) => (
-	       {FilterListItem.map(item => 
+const FilterList = ({items, FilterListItem, onClickFilterActive, onClickDone, onClickDelete}) => (
+	       <div className={styles.filters} >
+	       {FilterListItem.map((item) => (<li key={FilterListItem.id} >)
             <FilterListItem
-              key={item.id}
-              id={item.id}
-              value={item.value}
-              isActive={item.isActive}
+              id={FilterListItem.id}
+              value={FilterListItem.value}
+              isActive={FilterListItem.isActive}
               onClickFilterActive={onClickFilterActive}
+              onClickDone={onClickDone}
+              onClickDelete={onClickDelete}
             />
-           )}
-	);
+            </li>
+           ))}
+	</div>);
 
 export default FilterList;

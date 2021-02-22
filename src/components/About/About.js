@@ -2,6 +2,7 @@ import React from 'react';
 import Paper from '@material-ui/core/Paper';
 import CardContent from '@material-ui/core/CardContent';
 import styles from './About.module.css';
+import ErrorBlock from '../ErrorBlock/ErrorBlock';
 
 import CircularProgress from '@material-ui/core/CircularProgress';
 import {Octokit} from '@octokit/rest';
@@ -76,19 +77,21 @@ class About extends React.Component {
 	        </div> 
 			    <div>
 				    <h1 className={styles.title}>{ isLoading ? <CircularProgress /> : 'Мои репозитории:'}</h1>
-				    {!isLoading && <ol>
-				    	  {isError ? error : repoPageList.map(repo => (
+				    {!isLoading && <ul>
+				    	  {isError ?
+				    	   <ErrorBlock /> :
+				    	   repoPageList.map(repo => (
 				    	  	<li key={repo.id} className={styles.repo} > 
 				    	  	  <a href={repo.html_url} className={styles.link} > 
-				    	  	  <h2> {repo.name} </h2> 
-				    	  	  <div>
+				    	  	    <h2> {repo.name} </h2> 
+				    	  	  <div className={styles.infoRepo} >
 				    	  	    <div className={styles.infoDesc} > {repo.description} </div>
 				    	  	  </div>  
 				    	  	  <div> <span> {repo.language} </span> </div>
 				    	  	  <div> <span> {repo.stargazers_count} </span> </div>
 				    	  	  </a>
 				    	  	</li> ))}
-				    </ol>}
+				    </ul>}
 				  </div> 
 	        
 			</CardContent>

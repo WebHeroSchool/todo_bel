@@ -11,24 +11,78 @@ class InputItem extends React.Component {
 	  	  inputValue: '' ,
 	  	  errorStatus: false,
 	  	  helperText:'',
+	  	  isDouble: false
 	  };
 
-	  onButtonClick = () => {
-	  	  this.setState({
-	  	  	  inputValue: '' ,
-	  	  	  errorStatus: false ,
-	  	      helperText:'',
-	  	  });
+	   onChangeInputItem = (event) => {
 
-	  if (this.state.inputValue) {
-	  	this.props.onClickAdd(this.state.inputValue);
-	  } else {
-	  	this.setState ({
-	  		errorStatus: true,
-	  		helperText: 'Заполните поле'
-	  	});
-	  }	  
-	 }
+
+      this.setState({
+      inputValue: event.target.value,
+      errorStatus: (
+      this.state.errorStatus && this.valueCheck(this.state.inputValue) && this.valueCheckDouble(this.state.isDouble)
+      ),
+      helperText: !(this.state.errorStatus &&
+        this.valueCheck(this.state.inputValue) ? '' : 'Введите текст'
+      )
+    })
+  };
+
+
+  valueCheck = (value) => {
+
+   if (value === '') {
+      return false;
+    } else {
+      return true;
+    }	      
+  };	
+
+
+  valueCheckDouble = (value) => {
+
+    let result;
+
+    if (this.props.items.length === 0) return true;
+
+    this.props.items.find(item => {
+
+      if (item.value === value) {
+        result = true;
+      } else {
+        result = false;
+      }
+      return result;
+    });
+
+
+    if (result) {
+        return false;
+      } else {
+        return true;
+      }
+  };
+
+	  onButtonClick = () => {
+    if (!this.valueCheck(this.state.inputValue)) {
+      this.setState({
+          helperText: 'Введите текст',
+          errorStatus: true
+      });
+    } else if (!this.valueCheckDouble(this.state.inputValue)) {
+      this.setState({
+        helperText: 'Такое дело уже есть в списке',
+        errorStatus: true
+      });
+
+     } else {
+      this.setState({
+        inputValue: ''
+      });	      
+      this.props.onClickAdd(this.state.inputValue);
+    }	    
+    	    
+  }	  
 
 	  render () {
 
@@ -65,7 +119,6 @@ InputItem.propTypes = {
 	  helperText: PropTypes.string
 };
 
-	export default InputItem;
+	export default InputItem;    
 
 
-    

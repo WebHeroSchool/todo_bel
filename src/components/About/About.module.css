@@ -33,10 +33,27 @@
   border: 1px solid #CCCCCC;
   box-sizing: border-box;
   border-radius: 10px;
+  display: flex;
 }
 
 .link {
 	text-decoration: none;
+  padding: 6px 12px;
+  display: flex;
+  flex-direction: column;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;  
+}  
+
+.infoRepo {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+
+.list a {   color: #999999;
 }
 
 .infoDesc {
