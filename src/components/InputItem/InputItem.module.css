@@ -1,4 +1,4 @@
-.one {
+/*.one {
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
@@ -45,3 +45,11 @@
 
 
 
+*/
+
+
+
+.inputWrap {  
+  text-align: center; 
+  background: #FFF; 
+}
