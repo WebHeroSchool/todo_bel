@@ -1,5 +1,4 @@
 import React from 'react';
-import Paper from '@material-ui/core/Paper';
 import CardContent from '@material-ui/core/CardContent';
 import styles from './About.module.css';
 import ErrorBlock from '../ErrorBlock/ErrorBlock';
