@@ -3,6 +3,7 @@ import CardContent from '@material-ui/core/CardContent';
 import styles from './About.module.css';
 import ErrorBlock from '../ErrorBlock/ErrorBlock';
 
+
 import CircularProgress from '@material-ui/core/CircularProgress';
 import {Octokit} from '@octokit/rest';
 import Contacts from '../Contacts/Contacts';
@@ -19,8 +20,25 @@ class About extends React.Component {
     pageLimit: 4,
     countPages: 0,
     nameUser: [],
-    avatarUser: []
+    avatarUser: [],
+    firstRepo: 0,
+		lastRepo: 2
 	}
+
+	lastPage = () => {
+		this.setState({
+			firstRepo: this.state.firstRepo - 2,
+			lastRepo: this.state.lastRepo - 2,
+		});
+	};
+
+	nextPage = () => {
+		this.setState({
+			firstRepo: this.state.firstRepo + 2,
+			lastRepo: this.state.lastRepo + 2,
+		});
+	};
+
 
 	componentDidMount() {
 		octokit.repos.listForUser({
@@ -31,10 +49,10 @@ class About extends React.Component {
 		     	  isLoading: false
 		     });
 
-   this.setState({
-     repoPageList: this.state.repoList.slice(0, this.state.pageLimit),
-     countPages: Math.ceil(this.state.repoList.length / this.state.pageLimit)
-   });    
+   // this.setState({
+   //   repoPageList: this.state.repoList.slice(0, this.state.pageLimit),
+   //   countPages: Math.ceil(this.state.repoList.length / this.state.pageLimit)
+   // });    
 
 		})
 		.catch(err => {
@@ -63,8 +81,10 @@ class About extends React.Component {
         });
 	}
 
+
 	render () {
-		const {isLoading, isError, error, avatarUser, repoPageList} = this.state;
+		const {isLoading,repoList, isError, error, avatarUser, firstRepo, lastRepo} = this.state;
+		const repoPageList = repoList.slice(firstRepo,lastRepo);
 		return (
 				<CardContent className={styles.paper} elevation={3} >
 					<div className={styles.name} >
@@ -91,6 +111,20 @@ class About extends React.Component {
 				    	  	  </a>
 				    	  	</li> ))}
 				    </ul>}
+				    				<div className={styles.pagination}>
+                    <button className={styles.pagination_button}
+                        onClick={this.lastPage}
+                        disabled={firstRepo < 1}
+                    >
+                    Back
+                    </button>
+                    <button className={styles.pagination_button}
+                        onClick={this.nextPage}
+                        disabled={repoList.length < lastRepo}
+                    >
+                    Forward
+                    </button>
+                </div>
 				  </div> 
 	        
 			</CardContent>

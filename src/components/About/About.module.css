@@ -5,8 +5,8 @@
 
 .paper {
   margin: 0 auto;
-  width: 38em;
   padding: 1em;
+  width: 100%;
 }
 
 .avatar {
@@ -19,6 +19,7 @@
   flex-wrap: wrap;
   justify-content: space-between;	  
   align-items: center;	  
+  width: 100%;
 }
 
 .info {
@@ -59,3 +60,30 @@
 .infoDesc {
 	position: relative;
 }
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.pagination_button {
+  border: 1.2px solid #000;
+  box-sizing: border-box;
+  border-radius: 37px;
+  color: #4096ee;
+  font-weight: bold;
+  cursor: pointer;
+  margin-left: 20px;  
+  outline: none;
+}
+
+.pagination_button:hover {
+  background: #e2e2e2;
+  color: #3f4c6b;
+  border: 1.2px solid #585858;
+}
+
+.pagination__button:active {
+  border: 2px solid #151515;
+}   

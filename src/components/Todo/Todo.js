@@ -4,35 +4,21 @@ import Footer from '../Footer/Footer';
 import InputItem from '../InputItem/InputItem';
 import styles from  './Todo.module.css';
 import Paper from '@material-ui/core/Paper';
+import CardContent from '@material-ui/core/CardContent';
 import PropTypes from 'prop-types';
 import ErrorBlock from '../ErrorBlock/ErrorBlock';
 
 
 const Todo = () => {
-   const [items, setItems] = useState([
-    {
-      value: 'Посмотреть 5 уроков',
-      isDone: false,
-      id: 1
-    },
-    {
-      value: 'Выполнить домашние задания',
-      isDone: false,
-      id: 2
-    },
-    {
-      value: 'Почитать дополнительные статьи',
-      isDone: false,
-      id: 3
-    }
-  ]);
-  const [count, setCount] = useState(3);
+   const [items, setItems] = useState([  ]);
+
+  const [count, setCount] = useState(0);
   const [filter, setFilter] = useState('all');
 
   let itemsFilter;
 
-  const countActive = (items.filter((item) => item.isDone === false)).length;
-  const countDone = (items.filter((item) => item.isDone === true)).length;
+  const countActive = (items.filter((item) => item.isDone === true)).length;
+  const countDone = (items.filter((item) => item.isDone === false)).length;
 
   // const [items, setItems] = useState(initialState.items);
   // const [count, setCount] =  useState(initialState.count);
@@ -77,10 +63,10 @@ const Todo = () => {
 
   switch (filter) {
     case 'done':
-      itemsFilter = items.filter(item => item.isDone);
+      itemsFilter = items.filter(item => !item.isDone);
       break;
     case 'active':
-      itemsFilter = items.filter(item => !item.isDone);
+      itemsFilter = items.filter(item => item.isDone);
       break;
     default:
       itemsFilter = items;
@@ -88,29 +74,32 @@ const Todo = () => {
 
 
 
-  return (<Paper className={styles.paper} elevation={3}>
+  return (<CardContent className={styles.paper} elevation={1}>
   <div className={styles.wrap}> 
-    <h1 className={styles.title}> Список моих дел </h1> 
-    <Footer 
-      count={count}
-      filtered={filter}
-      countActive={countActive}
-      countDone={countDone}
-      onClickFilter={onClickFilter}
-    />
-     {(count === 0) ?
-      <ErrorBlock />
-      : <ItemList
-        items={itemsFilter} 
-        onClickDone={onClickDone}
-        onClickDelete={onClickDelete}
-      />      
-     }
+    <div className={styles.one}>
+      <h1 className={styles.title}> Список моих дел </h1> 
+      <Footer 
+        count={count}
+        filtered={filter}
+        countActive={countActive}
+        countDone={countDone}
+        onClickFilter={onClickFilter}
+      />
+    </div>   
+       {(count === 0) ?
+        <ErrorBlock />
+        : <ItemList
+          items={itemsFilter} 
+          onClickDone={onClickDone}
+          onClickDelete={onClickDelete}
+        />      
+       }
 
-    <InputItem onClickAdd={onClickAdd} />
+
+    <InputItem items={items} onClickAdd={onClickAdd} />
 
     </div>
-  </Paper> );
+  </CardContent> );
  };
 
 Todo.propTypes = {
