@@ -17,7 +17,7 @@ const App = () =>
 		  	      <a href='https://webheroschool.ru/' target='_blank' rel='noopener noreferrer'> 
 		  	      <img src={logo} width="100" height="40" alt="logo" />
 		  	      </a>
-			          <NavLink to='/' className={styles.link} activeClassName={styles.linkActive} exact to='/'> <MenuItem>Обо мне</MenuItem></NavLink>
+			          <NavLink to='/' className={styles.link} activeClassName={styles.linkActive} > <MenuItem>Обо мне</MenuItem></NavLink>
 			          <NavLink to='/todo' className={styles.link} activeClassName={styles.linkActive} ><MenuItem>Дела</MenuItem></NavLink>
 			          
 		        </MenuList>
