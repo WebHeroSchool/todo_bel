@@ -136,12 +136,5 @@ class InputItem extends React.Component {
     }
 }
 
-InputItem.propTypes = {
-    isDone: PropTypes.bool,
-    helperText: PropTypes.string
-};
 
-
-  export default InputItem;  
-
-
+export default InputItem;  
