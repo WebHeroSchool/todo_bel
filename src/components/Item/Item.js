@@ -2,16 +2,15 @@ import React from 'react';
 import classnames from 'classnames';
 import PropTypes from 'prop-types';
 import styles from './Item.module.css';
-import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction';
 import ListItem from '@material-ui/core/ListItem';
 import Checkbox from '@material-ui/core/Checkbox';
 import DeleteIcon from '@material-ui/icons/Cancel';
 import IconButton from '@material-ui/core/IconButton';
-import Tooltip from '@material-ui/core/Tooltip';
 
-const transition = {
-  transition: 'opacity .4s ease-out',
-};
+
+// const transition = {
+//   transition: 'opacity .4s ease-out',
+// };
 
 class Item extends React.Component {
 

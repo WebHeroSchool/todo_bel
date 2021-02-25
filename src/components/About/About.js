@@ -64,7 +64,7 @@ class About extends React.Component {
 	}
 
 	render () {
-		const {isLoading, isError, error, nameUser, avatarUser, repoPageList} = this.state;
+		const {isLoading, isError, error, avatarUser, repoPageList} = this.state;
 		return (
 				<CardContent className={styles.paper} elevation={3} >
 					<div className={styles.name} >

@@ -1,5 +1,4 @@
 import React from 'react';
-import Card from '@material-ui/core/Card';
 import styles from './Contacts.module.css';
 import MailTwoToneIcon from '@material-ui/icons/MailTwoTone';
 import PhoneIphoneTwoToneIcon from '@material-ui/icons/PhoneIphoneTwoTone';

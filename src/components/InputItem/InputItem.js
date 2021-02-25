@@ -1,7 +1,5 @@
 import React from 'react';
 import TextField from '@material-ui/core/TextField';
-import Button from '@material-ui/core/Button';
-import PropTypes from 'prop-types';
 import styless from './InputItem.module.css';
 import AddIcon from '@material-ui/icons/Add';
 import Fab from '@material-ui/core/Fab';
