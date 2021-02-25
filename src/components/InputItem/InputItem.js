@@ -29,7 +29,6 @@ onButtonClick = () => {
 
 
     render () {
-      const { onClickAdd, items } = this.props;
 
       return (<div className={styless.one}> 
           <form       
