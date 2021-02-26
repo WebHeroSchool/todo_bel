@@ -3,6 +3,7 @@ import ItemList from '../ItemList/ItemList';
 import Footer from '../Footer/Footer';
 import InputItem from '../InputItem/InputItem';
 import styles from  './Todo.module.css';
+import { makeStyles } from '@material-ui/core/styles';
 import CardContent from '@material-ui/core/CardContent';
 import PropTypes from 'prop-types';
 import ErrorBlock from '../ErrorBlock/ErrorBlock';
@@ -71,9 +72,15 @@ const Todo = () => {
       itemsFilter = items;
   }
 
+  const useStyles = makeStyles({
+  root: {
+    minWidth: '100%'
+  }
+  });
+  const classes = useStyles();
 
 
-  return (<CardContent className={styles.paper} elevation={1}>
+  return (<CardContent className={classes.root} elevation={1}>
   <div className={styles.wrap}> 
     <div className={styles.one}>
       <h1 className={styles.title}> Список моих дел </h1> 
@@ -98,7 +105,9 @@ const Todo = () => {
     <InputItem items={items} onClickAdd={onClickAdd} />
 
     </div>
+  
   </CardContent> );
+  
  };
 
 Todo.propTypes = {
