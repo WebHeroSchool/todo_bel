@@ -4,7 +4,6 @@ import Footer from '../Footer/Footer';
 import InputItem from '../InputItem/InputItem';
 import styles from  './Todo.module.css';
 import { makeStyles } from '@material-ui/core/styles';
-import CardContent from '@material-ui/core/CardContent';
 import PropTypes from 'prop-types';
 import ErrorBlock from '../ErrorBlock/ErrorBlock';
 
@@ -71,14 +70,6 @@ const Todo = () => {
     default:
       itemsFilter = items;
   }
-
-  const useStyles = makeStyles({
-  root: {
-    minWidth: '100%'
-  }
-  });
-  const classes = useStyles();
-
 
   return (
   <div className={styles.wrap}> 

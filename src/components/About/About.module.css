@@ -17,8 +17,8 @@
 .name {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;  
-  align-items: center; 
+  justify-content: space-between;
+  align-items: center;
   width: 100%;
 }
 
@@ -31,7 +31,7 @@
 
 .repo {
   margin-bottom: 8px;
-  border: 1px solid #CCC;
+  border: 1px solid #ccc;
   box-sizing: border-box;
   border-radius: 10px;
   display: flex;
@@ -45,7 +45,7 @@
   font-style: normal;
   font-weight: normal;
   font-size: 12px;
-}  
+}
 
 .infoRepo {
   display: flex;
@@ -54,7 +54,7 @@
 }
 
 .list a {
-  color: #999999;
+  color: #999;
 }
 
 .infoDesc {
