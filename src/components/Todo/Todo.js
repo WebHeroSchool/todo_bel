@@ -91,8 +91,7 @@ const Todo = () => {
         />      
        }
     <InputItem items={items} onClickAdd={onClickAdd} />
-    </div>
-  
+ </div>
    );
   
  };
