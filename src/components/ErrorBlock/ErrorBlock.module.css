@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap'); 
+
 .wrapper {
   display: flex;
   flex-direction: column;
@@ -9,7 +11,7 @@
   font-family: "Roboto";
   font-style: normal;
   font-weight: normal;
-  color: #000000;
+  color: #000;
   text-align: center;
 }
 
@@ -21,7 +23,7 @@
 .text p {
   font-size: 14px;
   line-height: 16px;
-  color: #999999;
+  color: #999;
 }
 
 .btnLink {
@@ -40,4 +42,4 @@
 .btnLink:focus,
 .btnLink:hover {
   opacity: 0.5;
-} 
+}

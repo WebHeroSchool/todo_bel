@@ -12,12 +12,12 @@ import logo from './Img/logo.svg';
 const App = () =>
   (<Router>
 	  	<div className={styles.wrap} >
-		  	<Card className={styles.card}>
+		  	<Card style={{minWidth: '100%'}} className={styles.card}>
 		  	    <MenuList className={styles.menu} >
 		  	      <a href='https://webheroschool.ru/' target='_blank' rel='noopener noreferrer'> 
 		  	      <img src={logo} width="100" height="40" alt="logo" />
 		  	      </a>
-			          <NavLink to='/' className={styles.link} activeClassName={styles.linkActive} > <MenuItem>Обо мне</MenuItem></NavLink>
+			          <NavLink className={styles.link} activeClassName={styles.linkActive} exact to='/' > <MenuItem>Обо мне</MenuItem></NavLink>
 			          <NavLink to='/todo' className={styles.link} activeClassName={styles.linkActive} ><MenuItem>Дела</MenuItem></NavLink>
 			          
 		        </MenuList>

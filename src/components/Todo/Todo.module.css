@@ -10,21 +10,14 @@
 }
 
 .paper {
-  /*margin: auto;*/
-  min-width: 100%; 
+  min-width: 100%;
   margin: 0 auto;
-  /*display: flex;*/
 }
-
 
 .one {
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
-	width: 100%;
-	margin-bottom: 10px;
-}
-
-.MuiCard-root {
-	width: 100%;
+  width: 100%;
+  margin-bottom: 10px;
 }

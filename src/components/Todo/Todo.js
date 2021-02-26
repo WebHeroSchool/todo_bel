@@ -80,7 +80,7 @@ const Todo = () => {
   const classes = useStyles();
 
 
-  return (<CardContent className={classes.root} elevation={1}>
+  return (
   <div className={styles.wrap}> 
     <div className={styles.one}>
       <h1 className={styles.title}> Список моих дел </h1> 
@@ -106,7 +106,7 @@ const Todo = () => {
 
     </div>
   
-  </CardContent> );
+   );
   
  };
 
