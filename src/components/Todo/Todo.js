@@ -3,7 +3,6 @@ import ItemList from '../ItemList/ItemList';
 import Footer from '../Footer/Footer';
 import InputItem from '../InputItem/InputItem';
 import styles from  './Todo.module.css';
-import { makeStyles } from '@material-ui/core/styles';
 import PropTypes from 'prop-types';
 import ErrorBlock from '../ErrorBlock/ErrorBlock';
 

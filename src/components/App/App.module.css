@@ -1,15 +1,6 @@
 @charset "UTF-8";
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
-:root {
-  --pd: 1em;
-  --color-bg: rgba(0, 0, 0, 0.05);
-  --color-item: rgba(255, 255, 255, 0.3);
-  --color-br: var(--color-bg);
-  --box-sh: 0 4px 10px 4px rgb(0, 0, 0, 0.16);
-  --width: 100%;
-}
-
 *,*::before,
 *::after {
   box-sizing: border-box;
