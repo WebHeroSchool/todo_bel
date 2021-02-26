@@ -90,10 +90,7 @@ const Todo = () => {
           onClickDelete={onClickDelete}
         />      
        }
-
-
     <InputItem items={items} onClickAdd={onClickAdd} />
-
     </div>
   
    );
@@ -105,5 +102,3 @@ Todo.propTypes = {
 };
 
   export default Todo;
-
-
