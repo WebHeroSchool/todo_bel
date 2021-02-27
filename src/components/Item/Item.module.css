@@ -1,11 +1,11 @@
 .item {
 	color: #20B2AA;
 	margin: auto 0;
+  text-decoration: line-through;
 }
 
 .done {
 	color: #c4c4c4;
-	text-decoration: line-through;
 }
 
 
@@ -24,4 +24,15 @@
 
 .itemWrap:hover .deleteBtn {
   opacity: 1;
-}	
+}
+
+.itemList {
+  margin-bottom: 20px;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 16px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  border-radius: 41px;
+}

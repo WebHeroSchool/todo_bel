@@ -1,13 +1,23 @@
 .wrap {
-  margin: auto;
-  width: 400px;
+  margin: 0 auto;
+  width: 100%;
 }
 
 .title {
-  color: red;
+  color: #000;
+  font-weight: bold;
+  font-size: 28px;
 }
 
 .paper {
-  margin: auto;
-  width: 700px;
+  min-width: 100%;
+  margin: 0 auto;
+}
+
+.one {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 10px;
 }

@@ -1,15 +1,21 @@
 import React from 'react';
-import Paper from '@material-ui/core/Paper';
 import styles from './Contacts.module.css';
+import MailTwoToneIcon from '@material-ui/icons/MailTwoTone';
+import PhoneIphoneTwoToneIcon from '@material-ui/icons/PhoneIphoneTwoTone';
+import GitHubIcon from '@material-ui/icons/GitHub';
 
-const title = (<h1 className={styles.title}>Контакты: </h1>);
 
 const Contacts = () => (
-	<Paper className={styles.paper} elevation={3} >
-		 <div>
-		   {title}
-		 </div>  
-	</Paper>
+	<div className={styles.paper}>
+		   <a className={styles.contacts} href="mailto:evgeniya.kornako@mail.ru">
+		   <MailTwoToneIcon />
+		   evgeniya.kornako@mail.ru </a>
+		 	 <a className={styles.contacts} href="+7 911 951 08 45">
+		   <PhoneIphoneTwoToneIcon />
+		   +7 911 951 08 45 </a> 
+		   <a className={styles.contacts} href="github.com/Evgeshka1412" >
+		   <GitHubIcon /> </a>
+	</div>
 );
 
 export default Contacts;

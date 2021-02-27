@@ -5,10 +5,85 @@
 
 .paper {
   margin: 0 auto;
-  width: 38em;
+  padding: 1em;
+  width: 100%;
 }
 
 .avatar {
   width: 30%;
   border-radius: 10px;
+}
+
+.name {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.info {
+  width: 65%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.repo {
+  margin-bottom: 8px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  border-radius: 10px;
+  display: flex;
+}
+
+.link {
+  text-decoration: none;
+  padding: 6px 12px;
+  display: flex;
+  flex-direction: column;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+}
+
+.infoRepo {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.list a {
+  color: #999;
+}
+
+.infoDesc {
+  position: relative;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.pagination_button {
+  border: 1.2px solid #000;
+  box-sizing: border-box;
+  border-radius: 37px;
+  color: #4096ee;
+  font-weight: bold;
+  cursor: pointer;
+  margin-left: 20px;
+  outline: none;
+}
+
+.pagination_button:hover {
+  background: #e2e2e2;
+  color: #3f4c6b;
+  border: 1.2px solid #585858;
+}
+
+.pagination__button:active {
+  border: 2px solid #151515;
 }

@@ -1,21 +1,31 @@
 import React from 'react';
-import Button from '@material-ui/core/Button';
-import PropTypes from 'prop-types';
-import FilterList from '../FilterList/FilterList';
 import styles from './Footer.module.css';
+import PropTypes from 'prop-types';
 
-const Footer = ({count}) => (<div className={styles.footer}> 
-   <Button variant="contained" color="secondary" size="small">
-      Осталось дел:{count}
-   </Button>
-   <FilterList />
-   <Button variant="outlined" color="secondary" size="small">
-      Удалить выполненные
-   </Button>
+const Footer = ({count, countActive, countDone, onClickFilter}) => {
+  return(
+
+  <div className={styles.footer}> 
+   <button className={styles.btn} onClick={() => onClickFilter('all')}>
+      Все ({count})
+   </button>
+   <button className={styles.btn} onClick={() => onClickFilter('active')}>
+      Активные({countActive})
+   </button>
+   <button className={styles.btn} onClick={() => onClickFilter('done')}>
+      Выполненные ({countDone})
+   </button>
  </div>);
 
-Footer.propTypes = {
-     count: PropTypes.number
 };
 
-export default Footer;	
+Footer.defaultProps = {
+  count: 0
+};
+
+Footer.propTypes = {
+  count: PropTypes.number
+};
+
+
+export default Footer;
